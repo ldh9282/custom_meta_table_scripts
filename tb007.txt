@@ -1,0 +1,17 @@
+CREATE TABLE meta.tb007 
+(
+    도메인일련번호 BIGINT NOT NULL,
+    도메인명 character varying(200),
+	도메인타입 character varying(200),
+    시스템생성자 character varying(200) NOT NULL,
+    시스템수정자 character varying(200) NOT NULL,
+    시스템생성일 timestamp without time zone NOT NULL,
+    시스템수정일 timestamp without time zone NOT NULL,
+    CONSTRAINT tb007_pk PRIMARY KEY (도메인일련번호)
+);
+
+create sequence meta.tb007_seq;
+
+create unique index tb007p on meta.tb007(도메인일련번호);
+
+COMMENT ON TABLE meta.tb007 IS '도메인정보';

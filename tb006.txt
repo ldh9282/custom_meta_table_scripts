@@ -1,0 +1,17 @@
+CREATE TABLE meta.tb006 
+(
+    스키마메타일련번호 BIGINT NOT NULL,
+    스키마명 character varying(200),
+	스키마설명 character varying(200),
+    시스템생성자 character varying(200) NOT NULL,
+    시스템수정자 character varying(200) NOT NULL,
+    시스템생성일 timestamp without time zone NOT NULL,
+    시스템수정일 timestamp without time zone NOT NULL,
+    CONSTRAINT tb006_pk PRIMARY KEY (스키마메타일련번호)
+);
+
+create sequence meta.tb006_seq;
+
+create unique index tb006p on meta.tb006(스키마메타일련번호);
+
+COMMENT ON TABLE meta.tb006 IS '스키마메타기본정보';

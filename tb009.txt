@@ -1,0 +1,18 @@
+CREATE TABLE meta.tb009
+(
+    용어일련번호 BIGINT NOT NULL,
+    용어상세일련번호 BIGINT NOT NULL,
+    용어구분코드 character varying(200),
+	용어구분코드명 character varying(200),
+    시스템생성자 character varying(200) NOT NULL,
+    시스템수정자 character varying(200) NOT NULL,
+    시스템생성일 timestamp without time zone NOT NULL,
+    시스템수정일 timestamp without time zone NOT NULL,
+    CONSTRAINT tb009_pk PRIMARY KEY (용어일련번호, 용어상세일련번호)
+);
+
+create sequence meta.tb009_seq;
+
+create unique index tb009p on meta.tb009(용어일련번호, 용어상세일련번호);
+
+COMMENT ON TABLE meta.tb009 IS '용어상세정보';

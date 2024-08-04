@@ -1,0 +1,17 @@
+CREATE TABLE meta.tb001
+(
+    회원일련번호 BIGINT NOT NULL,
+	회원아이디 character varying(200),
+	회원비밀번호 character varying(200),
+    시스템생성자 character varying(200) NOT NULL,
+    시스템수정자 character varying(200) NOT NULL,
+    시스템생성일 timestamp without time zone NOT NULL,
+    시스템수정일 timestamp without time zone NOT NULL,
+    CONSTRAINT tbcxls931_pk PRIMARY KEY (회원일련번호)
+);
+
+create sequence meta.tb001_seq;
+
+create unique index tb001p on meta.tb001(회원일련번호);
+
+COMMENT ON TABLE meta.tb001 IS '회원기본정보';

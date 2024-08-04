@@ -1,0 +1,19 @@
+CREATE TABLE meta.tb008 
+(
+    도메인일련번호 BIGINT NOT NULL,
+    용어일련번호 BIGINT NOT NULL,
+    용어명 character varying(200),
+	용어카멜명 character varying(200),
+	용어스네이크명 character varying(200),
+    시스템생성자 character varying(200) NOT NULL,
+    시스템수정자 character varying(200) NOT NULL,
+    시스템생성일 timestamp without time zone NOT NULL,
+    시스템수정일 timestamp without time zone NOT NULL,
+    CONSTRAINT tb008_pk PRIMARY KEY (도메인일련번호, 용어일련번호)
+);
+
+create sequence meta.tb008_seq;
+
+create unique index tb008p on meta.tb008(도메인일련번호, 용어일련번호);
+
+COMMENT ON TABLE meta.tb008 IS '용어기본정보';

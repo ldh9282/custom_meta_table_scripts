@@ -1,0 +1,19 @@
+CREATE TABLE meta.tb010
+(
+    테이블메타일련번호 BIGINT NOT NULL,
+    컬럼메타일련번호 BIGINT NOT NULL,
+    컬럼메타상세일련번호 BIGINT NOT NULL,
+	용어표준여부 character varying(1),
+	용어일련번호 character varying(200),
+    시스템생성자 character varying(200) NOT NULL,
+    시스템수정자 character varying(200) NOT NULL,
+    시스템생성일 timestamp without time zone NOT NULL,
+    시스템수정일 timestamp without time zone NOT NULL,
+    CONSTRAINT tb010_pk PRIMARY KEY (테이블메타일련번호, 컬럼메타일련번호, 컬럼메타상세일련번호)
+);
+
+create sequence meta.tb010_seq;
+
+create unique index tb010p on meta.tb010(테이블메타일련번호, 컬럼메타일련번호, 컬럼메타상세일련번호);
+
+COMMENT ON TABLE meta.tb010 IS '컬럼메타상세정보';

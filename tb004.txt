@@ -1,0 +1,19 @@
+CREATE TABLE meta.tb004
+(
+    테이블메타일련번호 BIGINT NOT NULL,
+    컬럼메타일련번호 BIGINT NOT NULL,
+	컬럼명 character varying(200),
+	컬럼카멜명 character varying(200),
+	컬럼스네이크명 character varying(200),
+    시스템생성자 character varying(200) NOT NULL,
+    시스템수정자 character varying(200) NOT NULL,
+    시스템생성일 timestamp without time zone NOT NULL,
+    시스템수정일 timestamp without time zone NOT NULL,
+    CONSTRAINT tb004_pk PRIMARY KEY (테이블메타일련번호, 컬럼메타일련번호)
+);
+
+create sequence meta.tb004_seq;
+
+create unique index tb004p on meta.tb004(테이블메타일련번호, 컬럼메타일련번호);
+
+COMMENT ON TABLE meta.tb004 IS '컬럼메타기본정보';
